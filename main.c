@@ -30,7 +30,7 @@ int main(int argc, char *argv[]){
     // Verificar si se proporcionó el tercer parámetro
     if (sumador == 1) {
         int tamano = (int)(final - comienzo) + 1; // calcula el tamaño de la lista
-        printf("tamano: %d\n", tamano);
+        //printf("tamano: %d\n", tamano);
         float *nudos = generarLista(comienzo, final);
         float *kilometros = generarLista(comienzo, final);
         kilometros = convertirValores(kilometros);
@@ -45,7 +45,7 @@ int main(int argc, char *argv[]){
      {
         int tamano = (int)(final - comienzo) + 1; 
         tamano = tamano / sumador; // calcula el tamaño de la lista
-        printf("tamano: %d\n", tamano);
+        //printf("tamano: %d\n", tamano);
         float *nudos = generarListaSumador(comienzo, final, sumador); // genera lista con valores
         float *kilometros = generarListaSumador(comienzo, final, sumador);//genera lista con valores
         kilometros = convertirValores(kilometros); // crea otra lista con los valores convertidos
