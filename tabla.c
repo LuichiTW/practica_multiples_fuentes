@@ -1,10 +1,9 @@
 #include "tabla.h"
 
-void imprimirTabla(float *nudos, float *kilometros){
-    while(*nudos != 0 && *kilometros != 0){
-        printf("%f nudos = %f km\n", *nudos, *kilometros);
-        nudos++;
-        kilometros++;
+void imprimirTabla(float *nudos, float *kilometros, int tamano){
+ 
+    for (int i = 0; i <= tamano; i++) { 
+        printf("%f nudos = %f km\n", nudos[i], kilometros[i]);
     }
 }
 
