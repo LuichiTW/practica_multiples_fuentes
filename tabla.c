@@ -9,31 +9,29 @@ void imprimirTabla(float *nudos, float *kilometros){
 }
 
 float *generarLista(float comienzo, float final){
-    float *valores = (float *)malloc(sizeof(float) * 100);
-    float *kilometros = (float *)malloc(sizeof(float) * 100);
-    int i = 0;
-    while(comienzo <= final){
+    int tamano = (int)(final - comienzo) + 1;
+    if (tamano <= 0) return NULL; // Validación básica del rango
+
+    float *valores = (float *)malloc(sizeof(float) * tamano);
+    if (!valores) return NULL; // Verificación de asignación exitosa
+
+    for (int i = 0; comienzo <= final; comienzo++, i++){
         valores[i] = comienzo;
-        kilometros[i] = comienzo;
-        comienzo++;
-        i++;
     }
-    valores[i] = 0;
-    kilometros[i] = 0;
+
     return valores;
 }
 
 float *generarListaSumador(float comienzo,float final,float sumador){
-    float *valores = (float *)malloc(sizeof(float) * 100);
-    float *kilometros = (float *)malloc(sizeof(float) * 100);
-    int i = 0;
-    while(comienzo <= final){
+    int tamano = (int)(final - comienzo) + 1;
+    if (tamano <= 0) return NULL; // Validación básica del rango
+
+    float *valores = (float *)malloc(sizeof(float) * tamano);
+    if (!valores) return NULL; // Verificación de asignación exitosa
+
+    for (int i = 0; comienzo <= final; comienzo += sumador, i++){
         valores[i] = comienzo;
-        kilometros[i] = comienzo;
-        comienzo += sumador;
-        i++;
     }
-    valores[i] = 0;
-    kilometros[i] = 0;
+
     return valores;
 }

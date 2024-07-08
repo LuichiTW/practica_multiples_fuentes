@@ -28,17 +28,25 @@ int main(int argc, char *argv[]){
     }
 
     // Verificar si se proporcionó el tercer parámetro
-    if (sumador != 0) {
+    if (sumador == 1) {
+        float *nudos = generarLista(comienzo, final);
+        float *kilometros = generarLista(comienzo, final);
+        kilometros = convertirValores(kilometros);
+        printf("Valores en kilometros:\n");
+        imprimirListaFloat(kilometros, 6); // imprime la lista de valores
+        printf("Valores en nudos:\n");
+        imprimirListaFloat(nudos, 6); // imprime la lista de valores
+        //imprimirTabla(valores, valores2);
+    } else if (sumador != 0)
+     {
+        float *nudos = generarListaSumador(comienzo, final, sumador); // genera lista con valores
         float *kilometros = generarListaSumador(comienzo, final, sumador);//genera lista con valores
         kilometros = convertirValores(kilometros); // crea otra lista con los valores convertidos
-        float *nudos = generarListaSumador(comienzo, final, sumador); // genera lista con valores
-        imprimirListaFloat(nudos, 11); // imprime la lista de valores
-        imprimirTabla(nudos, kilometros); // imprime la tabla
-    } else {
-        float *valores = generarLista(comienzo, final);
-        imprimirListaFloat(valores, 10); // imprime la lista de valores
-        float *valores2 = convertirValores(valores);
-        //imprimirTabla(valores, valores2);
+        printf("Valores en nudos:\n");
+        imprimirListaFloat(nudos, 6); // imprime la lista de valores
+        printf("Valores en kilometros:\n");
+        imprimirListaFloat(kilometros, 6); // imprime la lista de valores
+        //imprimirTabla(nudos, kilometros); // imprime la tabla
     }
 
     return 0;
