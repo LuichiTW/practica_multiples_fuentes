@@ -5,8 +5,6 @@
 #include "conversion.h"
 #include "tabla.h"
 
-float *generarListaSumador(float comienzo,float final,float sumador);
-float *generarLista(float comienzo, float final);
 
 void main(float comienzo, float final, ...){
 
@@ -28,34 +26,4 @@ void main(float comienzo, float final, ...){
     }
 
     va_end(args);
-}
-
-float *generarLista(float comienzo, float final){
-    float *valores = (float *)malloc(sizeof(float) * 100);
-    float *valores2 = (float *)malloc(sizeof(float) * 100);
-    int i = 0;
-    while(comienzo <= final){
-        valores[i] = comienzo;
-        valores2[i] = comienzo;
-        comienzo++;
-        i++;
-    }
-    valores[i] = 0;
-    valores2[i] = 0;
-    return valores;
-}
-
-float *generarListaSumador(float comienzo,float final,float sumador){
-    float *valores = (float *)malloc(sizeof(float) * 100);
-    float *valores2 = (float *)malloc(sizeof(float) * 100);
-    int i = 0;
-    while(comienzo <= final){
-        valores[i] = comienzo;
-        valores2[i] = comienzo;
-        comienzo += sumador;
-        i++;
-    }
-    valores[i] = 0;
-    valores2[i] = 0;
-    return valores;
 }
