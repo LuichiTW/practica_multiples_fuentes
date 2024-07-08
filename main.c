@@ -6,24 +6,40 @@
 #include "tabla.h"
 
 
-void main(float comienzo, float final, ...){
+void imprimirListaFloat(float *lista, int tamano) {
+    for (int i = 0; i < tamano; i++) {
+        printf("%f\n", lista[i]); // Imprime el valor de float en cada posición
+    }
+}
 
-    va_list args;
-    va_start(args, final);
+int main(int argc, char *argv[]){
 
-    double sumadorDouble = va_arg(args, double); // Obtener el tercer parámetro como double
-    float sumador = (float)sumadorDouble; // Convertir a float si es necesario
+    if (argc < 3) {
+        printf("Uso: %s <comienzo> <final> [sumador]\n", argv[0]);
+        return 1;
+    }
+
+    float comienzo = atof(argv[1]);
+    float final = atof(argv[2]);
+    float sumador = 1;
+
+    if (argc > 3) {
+        sumador = atof(argv[3]);
+    }
 
     // Verificar si se proporcionó el tercer parámetro
     if (sumador != 0) {
-        float *valores = generarListaSumador(comienzo, final, sumador);//genera lista con valores
-        float *valores2 = convertirValores(valores); // crea otra lista con los valores convertidos
-        imprimirTabla(valores, valores2); // imprime la tabla
+        float *kilometros = generarListaSumador(comienzo, final, sumador);//genera lista con valores
+        kilometros = convertirValores(kilometros); // crea otra lista con los valores convertidos
+        float *nudos = generarListaSumador(comienzo, final, sumador); // genera lista con valores
+        imprimirListaFloat(nudos, 11); // imprime la lista de valores
+        imprimirTabla(nudos, kilometros); // imprime la tabla
     } else {
         float *valores = generarLista(comienzo, final);
+        imprimirListaFloat(valores, 10); // imprime la lista de valores
         float *valores2 = convertirValores(valores);
-        imprimirTabla(valores, valores2);
+        //imprimirTabla(valores, valores2);
     }
 
-    va_end(args);
+    return 0;
 }
